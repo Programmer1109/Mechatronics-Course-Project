@@ -3,13 +3,17 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
+// Pins for temperature sensor
 #define DHTPIN A0
 #define DHTTYPE DHT11
 
+// pins for fan control
 #define fanApwm 3
 #define fanBpwm 6
 #define relayPin 8
 #define setTemp 40.0
+
+//Constants for the pid controller
 #define Kp 0.0
 #define Ki 0.0
 #define Kd 0.0
@@ -20,6 +24,7 @@ double error,prevError,P,I,D,PID;
 
 DHT dht(DHTPIN, DHTTYPE);
 
+//functions for the program
 void fan(bool ,int );
 int temp_PID(double );
 void disp(int ,int );
